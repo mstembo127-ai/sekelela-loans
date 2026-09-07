@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sekelela Loans - Fast, Accessible Financial Support When You Need It Most. Apply for micro-loans in Zambia.">
+    <meta name="keywords" content="loans, Zambia, micro-lending, ZMW, financial support">
+    <meta name="author" content="Sekelela Loans">
+    <title>Sekelela Loans - Fast Financial Support</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='45' fill='%23006B54'/><text x='50' y='60' font-size='50' font-weight='bold' text-anchor='middle' fill='white'>S</text></svg>">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="logo-circle">S</div>
+                    <div class="logo-text">
+                        <h1 class="logo-title">Sekelela Loans</h1>
+                        <p class="logo-tagline">Fast, Accessible Financial Support</p>
+                    </div>
+                </div>
+                <nav class="nav-menu">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#calculator" class="nav-link">Calculator</a>
+                    <a href="#apply" class="nav-link">Apply</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h2 class="hero-title">When You Need It Most</h2>
+                <p class="hero-subtitle">Get fast, accessible micro-loans tailored to your financial needs. No lengthy paperwork. Simple. Transparent. Trusted.</p>
+                <div class="hero-cta">
+                    <button class="btn btn-primary" onclick="scrollToSection('calculator')">Calculate Loan</button>
+                    <button class="btn btn-secondary" onclick="scrollToSection('apply')">Apply Now</button>
+                </div>
+            </div>
+            <div class="hero-illustration">
+                <svg viewBox="0 0 300 300" class="hero-svg">
+                    <circle cx="150" cy="150" r="140" fill="#E8F4F0" stroke="#006B54" stroke-width="2"/>
+                    <rect x="100" y="100" width="100" height="100" fill="#00B86F" rx="10"/>
+                    <text x="150" y="155" font-size="60" font-weight="bold" text-anchor="middle" fill="white">ZMW</text>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loan Calculator Section -->
+    <section class="calculator-section" id="calculator">
+        <div class="container">
+            <h2 class="section-title">Loan Calculator</h2>
+            <p class="section-subtitle">See exactly what you'll pay before you apply</p>
+            
+            <div class="calculator-widget">
+                <!-- Loan Amount Input -->
+                <div class="calculator-field">
+                    <label for="loanAmount" class="field-label">Loan Amount (ZMW)</label>
+                    <div class="input-group">
+                        <span class="currency-symbol">ZMW</span>
+                        <input 
+                            type="number" 
+                            id="loanAmount" 
+                            class="loan-input" 
+                            min="5" 
+                            max="10000" 
+                            value="1000" 
+                            step="100"
+                            onchange="updateCalculator()"
+                            oninput="updateCalculator()"
+                        >
+                    </div>
+                    <input 
+                        type="range" 
+                        id="loanSlider" 
+                        class="loan-slider" 
+                        min="5" 
+                        max="10000" 
+                        value="1000" 
+                        step="100"
+                        onchange="updateCalculator()"
+                        oninput="updateCalculator()"
+                    >
+                    <div class="slider-labels">
+                        <span>ZMW 5</span>
+                        <span>ZMW 10,000</span>
+                    </div>
+                </div>
+
+                <!-- Repayment Term Selection -->
+                <div class="calculator-field">
+                    <label class="field-label">Repayment Term</label>
+                    <div class="term-options">
+                        <label class="term-option">
+                            <input 
+                                type="radio" 
+                                name="term" 
+                                value="short" 
+                                checked 
+                                onchange="updateCalculator()"
+                            >
+                            <span class="term-label">
+                                <span class="term-title">Short-Term</span>
+                                <span class="term-duration">7-30 Days</span>
+                                <span class="term-rate">20% Interest</span>
+                            </span>
+                        </label>
+                        <label class="term-option">
+                            <input 
+                                type="radio" 
+                                name="term" 
+                                value="medium" 
+                                onchange="updateCalculator()"
+                            >
+                            <span class="term-label">
+                                <span class="term-title">Medium-Term</span>
+                                <span class="term-duration">60-90 Days</span>
+                                <span class="term-rate">30% Interest</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Repayment Duration (Days) -->
+                <div class="calculator-field">
+                    <label for="repaymentDays" class="field-label">Repayment Duration (Days)</label>
+                    <div class="input-group">
+                        <input 
+                            type="number" 
+                            id="repaymentDays" 
+                            class="loan-input" 
+                            min="7" 
+                            max="90" 
+                            value="14" 
+                            step="1"
+                            onchange="updateCalculator()"
+                            oninput="updateCalculator()"
+                        >
+                        <span class="unit-label">days</span>
+                    </div>
+                    <input 
+                        type="range" 
+                        id="daysSlider" 
+                        class="loan-slider" 
+                        min="7" 
+                        max="90" 
+                        value="14" 
+                        step="1"
+                        onchange="updateCalculator()"
+                        oninput="updateCalculator()"
+                    >
+                </div>
+
+                <!-- Calculation Results -->
+                <div class="calculation-results">
+                    <div class="result-item">
+                        <span class="result-label">Principal Amount</span>
+                        <span class="result-value" id="principalDisplay">ZMW 1,000</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Interest Rate</span>
+                        <span class="result-value" id="interestRateDisplay">20%</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Interest Amount</span>
+                        <span class="result-value" id="interestAmountDisplay">ZMW 200</span>
+                    </div>
+                    <div class="result-item highlight">
+                        <span class="result-label">Total to Repay</span>
+                        <span class="result-value" id="totalRepayDisplay">ZMW 1,200</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Repayment Due Date</span>
+                        <span class="result-value" id="dueDateDisplay">TBD</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form Section -->
+    <section class="application-section" id="apply">
+        <div class="container">
+            <h2 class="section-title">Apply for a Loan</h2>
+            <p class="section-subtitle">Complete the form below to get started</p>
+
+            <form id="loanApplicationForm" class="application-form" onsubmit="handleFormSubmit(event)">
+                <!-- Progress Indicator -->
+                <div class="progress-indicator">
+                    <div class="progress-step active" data-step="1">
+                        <span class="step-number">1</span>
+                        <span class="step-label">Personal Details</span>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step" data-step="2">
+                        <span class="step-number">2</span>
+                        <span class="step-label">Next of Kin</span>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step" data-step="3">
+                        <span class="step-number">3</span>
+                        <span class="step-label">Documents</span>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step" data-step="4">
+                        <span class="step-number">4</span>
+                        <span class="step-label">Confirm & Submit</span>
+                    </div>
+                </div>
+
+                <!-- Step 1: Personal Details -->
+                <div class="form-step active" data-step="1">
+                    <h3 class="step-title">Step 1: Personal Details</h3>
+                    
+                    <div class="form-group">
+                        <label for="firstName" class="form-label">First Name *</label>
+                        <input 
+                            type="text" 
+                            id="firstName" 
+                            name="firstName" 
+                            class="form-input" 
+                            placeholder="Enter your first name"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="middleName" class="form-label">Middle Name</label>
+                        <input 
+                            type="text" 
+                            id="middleName" 
+                            name="middleName" 
+                            class="form-input" 
+                            placeholder="Enter your middle name (optional)"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName" class="form-label">Last Name *</label>
+                        <input 
+                            type="text" 
+                            id="lastName" 
+                            name="lastName" 
+                            class="form-input" 
+                            placeholder="Enter your last name"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nrcNumber" class="form-label">National Registration Card (NRC) Number *</label>
+                        <input 
+                            type="text" 
+                            id="nrcNumber" 
+                            name="nrcNumber" 
+                            class="form-input" 
+                            placeholder="e.g., 123456/78/9"
+                            pattern="^\d{6}/\d{2}/\d{1}$"
+                            required
+                        >
+                        <small class="form-hint">Format: XXXXXX/XX/X</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mobileNumber" class="form-label">Primary Mobile Number *</label>
+                        <input 
+                            type="tel" 
+                            id="mobileNumber" 
+                            name="mobileNumber" 
+                            class="form-input" 
+                            placeholder="e.g., +260 97 123 4567"
+                            pattern="^\+260\s\d{2}\s\d{3}\s\d{4}$|^0\d{9}$"
+                            required
+                        >
+                        <small class="form-hint">MTN, Airtel, or Zamtel format</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address" class="form-label">Physical Residential Address *</label>
+                        <input 
+                            type="text" 
+                            id="address" 
+                            name="address" 
+                            class="form-input" 
+                            placeholder="Enter your residential address"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="city" class="form-label">City/Town *</label>
+                        <input 
+                            type="text" 
+                            id="city" 
+                            name="city" 
+                            class="form-input" 
+                            placeholder="e.g., Lusaka, Kitwe, Ndola"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <!-- Step 2: Next of Kin Information -->
+                <div class="form-step" data-step="2">
+                    <h3 class="step-title">Step 2: Next of Kin / Relative Information</h3>
+                    
+                    <div class="form-group">
+                        <label for="nextOfKinName" class="form-label">Relative's Full Name *</label>
+                        <input 
+                            type="text" 
+                            id="nextOfKinName" 
+                            name="nextOfKinName" 
+                            class="form-input" 
+                            placeholder="Enter full name of your relative"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="relationship" class="form-label">Relationship to Applicant *</label>
+                        <select id="relationship" name="relationship" class="form-input" required>
+                            <option value="">Select relationship...</option>
+                            <option value="spouse">Spouse</option>
+                            <option value="parent">Parent</option>
+                            <option value="sibling">Sibling</option>
+                            <option value="child">Child</option>
+                            <option value="grandparent">Grandparent</option>
+                            <option value="other">Other Relative</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="nextOfKinPhone" class="form-label">Relative's Contact Phone Number *</label>
+                        <input 
+                            type="tel" 
+                            id="nextOfKinPhone" 
+                            name="nextOfKinPhone" 
+                            class="form-input" 
+                            placeholder="e.g., +260 97 123 4567"
+                            pattern="^\+260\s\d{2}\s\d{3}\s\d{4}$|^0\d{9}$"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <!-- Step 3: Document Uploads -->
+                <div class="form-step" data-step="3">
+                    <h3 class="step-title">Step 3: Verification & Document Uploads</h3>
+                    
+                    <div class="form-group">
+                        <label class="form-label">NRC Front & Back Scan *</label>
+                        <div class="file-upload-area" onclick="document.getElementById('nrcFile').click()">
+                            <input 
+                                type="file" 
+                                id="nrcFile" 
+                                name="nrcFile" 
+                                accept="image/*,.pdf" 
+                                required
+                                style="display: none;"
+                                onchange="handleFileSelect(this, 'nrcFileName')"
+                            >
+                            <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            <p class="upload-text">Click to upload NRC scan</p>
+                            <p class="upload-hint">PNG, JPG, or PDF (Max 5MB)</p>
+                            <p class="upload-filename" id="nrcFileName"></p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Passport-Style Photo / Live Selfie *</label>
+                        <div class="file-upload-area" onclick="document.getElementById('photoFile').click()">
+                            <input 
+                                type="file" 
+                                id="photoFile" 
+                                name="photoFile" 
+                                accept="image/*" 
+                                required
+                                style="display: none;"
+                                onchange="handleFileSelect(this, 'photoFileName')"
+                            >
+                            <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                                <circle cx="12" cy="13" r="4"></circle>
+                            </svg>
+                            <p class="upload-text">Click to upload your photo</p>
+                            <p class="upload-hint">PNG or JPG (Max 5MB)</p>
+                            <p class="upload-filename" id="photoFileName"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Terms & Confirmation -->
+                <div class="form-step" data-step="4">
+                    <h3 class="step-title">Step 4: Confirm & Submit</h3>
+                    
+                    <div class="form-summary">
+                        <h4>Application Summary</h4>
+                        <div class="summary-item">
+                            <span>Applicant Name:</span>
+                            <span id="summaryName">-</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>NRC Number:</span>
+                            <span id="summaryNRC">-</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Mobile Number:</span>
+                            <span id="summaryPhone">-</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>City/Town:</span>
+                            <span id="summaryCity">-</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Next of Kin:</span>
+                            <span id="summaryNOK">-</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input 
+                                type="checkbox" 
+                                id="termsCheckbox" 
+                                name="termsCheckbox" 
+                                required
+                            >
+                            <span>I confirm that all information provided is accurate and I agree to the <a href="#" onclick="showTermsModal(event)" class="terms-link">Sekelela Loans Terms & Conditions</a> *</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="form-navigation">
+                    <button type="button" class="btn btn-secondary" id="prevBtn" onclick="changeStep(-1)" style="display: none;">← Previous</button>
+                    <button type="button" class="btn btn-primary" id="nextBtn" onclick="changeStep(1)">Next →</button>
+                    <button type="submit" class="btn btn-success" id="submitBtn" style="display: none;">Submit Application</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Need Help?</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>Call Us</h3>
+                    <p><a href="tel:+260211123456">+260 211 123 456</a></p>
+                </div>
+                <div class="contact-card">
+                    <h3>Email</h3>
+                    <p><a href="mailto:support@sekelela.zm">support@sekelela.zm</a></p>
+                </div>
+                <div class="contact-card">
+                    <h3>WhatsApp</h3>
+                    <p><a href="https://wa.me/260971234567" target="_blank">+260 97 123 4567</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Sekelela Loans. All rights reserved. | <a href="#privacy">Privacy Policy</a> | <a href="#terms">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <!-- Terms & Conditions Modal -->
+    <div id="termsModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeTermsModal()">&times;</span>
+            <h2>Sekelela Loans - Terms & Conditions</h2>
+            <div class="terms-body">
+                <h3>1. Loan Agreement</h3>
+                <p>By applying for a loan through Sekelela Loans, you agree to the terms and conditions outlined in this agreement. The loan agreement is binding once your application is approved.</p>
+                
+                <h3>2. Loan Repayment</h3>
+                <p>You agree to repay the full loan amount plus accrued interest on or before the specified due date. Failure to repay may result in additional penalties and legal action.</p>
+                
+                <h3>3. Interest Rates</h3>
+                <p>Short-term loans (7-30 days): 20% interest rate. Medium-term loans (60-90 days): 30% interest rate.</p>
+                
+                <h3>4. Data Privacy</h3>
+                <p>Your personal information will be handled in accordance with our Privacy Policy and all applicable Zambian data protection laws. We do not share your information with third parties without consent.</p>
+                
+                <h3>5. Verification</h3>
+                <p>You certify that all information provided in your application is true, accurate, and complete. Providing false information may result in application rejection and potential legal consequences.</p>
+                
+                <h3>6. Default & Penalties</h3>
+                <p>Late payments may incur additional penalties. Continued non-payment may result in debt collection proceedings and damage to your credit standing.</p>
+                
+                <h3>7. Modification Rights</h3>
+                <p>Sekelela Loans reserves the right to modify these terms with 30 days notice.</p>
+                
+                <h3>8. Governing Law</h3>
+                <p>These terms are governed by the laws of the Republic of Zambia.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content success-modal">
+            <svg class="success-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <h2>Application Submitted Successfully!</h2>
+            <p>Thank you for applying to Sekelela Loans. Your application has been received and is being reviewed.</p>
+            <p><strong>Application Reference:</strong> <span id="referenceNumber"></span></p>
+            <p>We will contact you shortly via SMS or phone call with the status of your application.</p>
+            <button class="btn btn-primary" onclick="closeSuccessModal()">Close</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
