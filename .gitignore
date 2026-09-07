@@ -1,0 +1,337 @@
+# Sekelela Loans - Git Ignore File
+
+# ============================================
+# Dependencies
+# ============================================
+node_modules/
+npm-debug.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# ============================================
+# Environment Variables
+# ============================================
+.env
+.env.local
+.env.*.local
+.env.production
+.env.development
+.env.test
+
+# ============================================
+# IDE & Editor Files
+# ============================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+*.sublime-project
+.history
+.ionide
+
+# ============================================
+# Build & Compilation
+# ============================================
+dist/
+build/
+*.o
+*.a
+*.so
+*.dll
+*.dylib
+*.exe
+*.out
+*.app
+
+# ============================================
+# Logs
+# ============================================
+logs/
+*.log
+*.logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# ============================================
+# Operating System Files
+# ============================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ============================================
+# Temporary Files
+# ============================================
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+*.backup
+*.swp
+*.swo
+*~
+
+# ============================================
+# Database Files
+# ============================================
+*.db
+*.sqlite
+*.sqlite3
+*.rdb
+*.dump
+
+# ============================================
+# Cache Files
+# ============================================
+.cache/
+.eslintcache
+.stylelintcache
+.prettier-cache
+*.cache
+
+# ============================================
+# Coverage Reports
+# ============================================
+coverage/
+.nyc_output/
+*.lcov
+
+# ============================================
+# Test Files
+# ============================================
+__tests__/coverage/
+.test-results/
+test-results.xml
+
+# ============================================
+# OS Generated Files
+# ============================================
+.directory
+.AppleDouble
+.LSOverride
+*.swp
+*.swo
+*~
+.netrwhist
+
+# ============================================
+# Runtime Files
+# ============================================
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+pyvenv.cfg
+
+# ============================================
+# Build Artifacts
+# ============================================
+*.o
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# ============================================
+# Sensitive Files
+# ============================================
+private/
+secrets/
+credentials.json
+*.pem
+*.key
+*.cert
+
+# ============================================
+# Docker
+# ============================================
+docker-compose.override.yml
+.dockerignore
+
+# ============================================
+# CI/CD
+# ============================================
+.github/workflows/*.log
+.gitlab-ci.yml.log
+.travis.yml.log
+
+# ============================================
+# Documentation
+# ============================================
+docs/_build/
+site/
+
+# ============================================
+# Backup Files
+# ============================================
+*.bak
+*.backup
+*.old
+
+# ============================================
+# Generated Files
+# ============================================
+*.generated.js
+*.generated.css
+*.generated.html
+
+# ============================================
+# Node Modules Cache
+# ============================================
+.npm/
+.eslintcache
+
+# ============================================
+# Bundle Files
+# ============================================
+dist/
+*.bundle.js
+*.chunk.js
+
+# ============================================
+# Frontend Build
+# ============================================
+.next/
+.nuxt/
+dist/
+build/
+*.bundle.js
+
+# ============================================
+# Backend Generated
+# ============================================
+__pycache__/
+*.pyc
+*.pyo
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ============================================
+# IDE Settings (Repository Specific)
+# ============================================
+.vscode/settings.json
+.vscode/extensions.json
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/inspectionProfiles/
+.idea/dictionaries/
+.idea/*.iml
+.idea/shelf
+
+# ============================================
+# Misc
+# ============================================
+.fusebox/
+.runtimeconfig.json
+*.rar
+*.7z
+.aws/
+credentials.json
+.husky/
+
+# ============================================
+# Production Database Backups
+# ============================================
+backups/
+dumps/
+*.sql
+*.sql.gz
+
+# ============================================
+# Vendor Directories
+# ============================================
+vendor/
+php_modules/
+
+# ============================================
+# Package Managers
+# ============================================
+Gemfile.lock
+Pipfile.lock
+poetry.lock
+
+# ============================================
+# Media & Assets (Optional - uncomment if needed)
+# ============================================
+# *.mp4
+# *.avi
+# *.mov
+# *.flv
+# Large image files can be added if needed
+
+# ============================================
+# Configuration Files (Local)
+# ============================================
+config/local.json
+config/development.json
+.env.local.php
+
+# ============================================
+# Git Specific
+# ============================================
+.git/
+.gitattributes
+
+# ============================================
+# Other
+# ============================================
+*.swp
+*.swo
+*~
+.viminfo
+
+# ============================================
+# Sekelela Loans Specific
+# ============================================
+# Local application data
+local_data/
+user_uploads/
+documents/
+temp_files/
+
+# Development helpers
+debug_output.txt
+test_results.txt
+
+# Ignore specific sensitive files if present
+config/db.config.php
+config/api.config.php
